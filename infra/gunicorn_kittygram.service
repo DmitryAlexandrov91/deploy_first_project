@@ -9,3 +9,4 @@ ExecStart=/home/yc-user/deploy_first_project/venv/bin/gunicorn --bind 0.0.0.0:80
 
 [Install]
 WantedBy=multi-user.target
+

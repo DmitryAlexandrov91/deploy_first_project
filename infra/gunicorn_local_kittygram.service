@@ -1,0 +1,12 @@
+[Unit]
+Description=gunicorn local_kittygram daemon
+
+After=network.target
+
+[Service]
+User=aldmal
+WorkingDirectory=/home/aldmal/python_projects/learning_projects/deploy_first_project/backend
+ExecStart=/home/aldmal/python_projects/learning_projects/deploy_first_project/venv/bin/gunicorn --bind 0.0.0.0:8080 kittygram_backend.wsgi
+
+[Install]
+WantedBy=multi-user.target

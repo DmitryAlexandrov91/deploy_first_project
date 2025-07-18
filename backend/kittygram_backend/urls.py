@@ -1,13 +1,10 @@
-from rest_framework import routers
-
-from django.contrib import admin
-from django.urls import include, path
-
+from cats.views import AchievementViewSet, CatViewSet
 from django.conf import settings
 from django.conf.urls.static import static
-
-from cats.views import AchievementViewSet, CatViewSet
-
+from django.contrib import admin
+from django.urls import include, path
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'cats', CatViewSet)
@@ -18,6 +15,8 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/', include('djoser.urls')),  # Работа с пользователями
     path('api/', include('djoser.urls.authtoken')),  # Работа с токенами
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='docs'),
 ]
 
 if settings.DEBUG:
