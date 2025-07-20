@@ -1,5 +1,5 @@
 <div align="center">
-<h1> Infra </h1>
+<h1> Kittygram v1 </h1>
 <p><em> Учебный проект для сборки и запуска приложения.</em></p>
 </div>
 
